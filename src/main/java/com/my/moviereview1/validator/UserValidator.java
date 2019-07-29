@@ -17,6 +17,7 @@ public class UserValidator implements Validator {
 	@Override
 	public void validate(Object target, Errors errors) {
 		// TODO Auto-generated method stub
+		@SuppressWarnings("unused")
 		User user = (User) target;
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "error.invalid.user", "First Name Required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "error.invalid.user", "Last Name Required");

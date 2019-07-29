@@ -10,8 +10,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.HashMap;
-import java.util.Map.Entry;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -28,10 +26,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MovieController {
 	
+	@SuppressWarnings("unused")
 	private static final Logger logger = LoggerFactory.getLogger(MovieController.class);
 	
 
 	
+	@SuppressWarnings("unused")
 	@RequestMapping(value = "/", method = RequestMethod.GET)	
 	public ModelAndView displayMovies(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
 		

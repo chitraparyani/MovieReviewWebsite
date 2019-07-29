@@ -18,13 +18,8 @@ import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,12 +28,12 @@ import org.springframework.web.servlet.ModelAndView;
 import com.my.moviereview1.dao.UserDAO;
 import com.my.moviereview1.pojo.User;
 import com.my.moviereview1.pojo.UserMovies;
-import com.my.moviereview1.validator.UserValidator;
 
 @Controller
 public class UserMoviesController {
 	
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/user-movies", method = RequestMethod.GET)
 	public ModelAndView displayDetails(HttpServletRequest request, HttpServletResponse response, UserDAO userDao,
 			ModelMap model) throws IOException {
@@ -48,6 +43,7 @@ public class UserMoviesController {
 		JSONArray ja = new JSONArray();
 		HttpSession session = request.getSession(false);
 		String username = null;
+		@SuppressWarnings("rawtypes")
 		ArrayList movies = new ArrayList();
 		List<UserMovies> list = new ArrayList<UserMovies>();
 		
@@ -134,6 +130,7 @@ public class UserMoviesController {
 		
 		HttpSession session = request.getSession(false);
 		if(session!=null) {
+			@SuppressWarnings("unused")
 			String username = (String)session.getAttribute("username");
 			String userid = (String) session.getAttribute("userid");
 			session.setAttribute("user", user);

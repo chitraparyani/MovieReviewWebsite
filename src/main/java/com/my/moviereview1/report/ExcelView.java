@@ -25,6 +25,7 @@ public class ExcelView extends AbstractXlsView {
 		
 		response.setHeader("Content-Disposition", "attachment; filename= \"UserList.xls\"");
 		
+		@SuppressWarnings("unchecked")
 		List<User> list = (List<User>) model.get("list");
 		Sheet sheet = workbook.createSheet("UserList");
 		

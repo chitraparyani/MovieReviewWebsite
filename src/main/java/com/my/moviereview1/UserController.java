@@ -28,6 +28,7 @@ import com.my.moviereview1.pojo.User;
 import com.my.moviereview1.pojo.UserMovies;
 import com.my.moviereview1.validator.UserValidator;
 
+@SuppressWarnings("unused")
 @Controller
 public class UserController {
 
@@ -169,6 +170,7 @@ public class UserController {
 		}
 		
 			
+			@SuppressWarnings("unchecked")
 			ArrayList<User> userlist= (ArrayList<User>) userDao.retrieveUser();
 			String usernam= user.getUsername();
 			for(User u: userlist) {

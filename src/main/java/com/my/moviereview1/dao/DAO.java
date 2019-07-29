@@ -16,13 +16,15 @@ public class DAO {
 	
 private static final Logger log = Logger.getAnonymousLogger();
     
+	@SuppressWarnings("rawtypes")
 	private static final ThreadLocal sessionThread = new ThreadLocal();
     private static final SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 
     protected DAO() {
     }
 
-    public static Session getSession()
+    @SuppressWarnings("unchecked")
+	public static Session getSession()
     {
         Session session = (Session) DAO.sessionThread.get();
         
@@ -42,7 +44,8 @@ private static final Logger log = Logger.getAnonymousLogger();
         getSession().getTransaction().commit();
     }
 
-    protected void rollback() {
+    @SuppressWarnings("unchecked")
+	protected void rollback() {
         try {
             getSession().getTransaction().rollback();
         } catch (HibernateException e) {
@@ -56,7 +59,8 @@ private static final Logger log = Logger.getAnonymousLogger();
         DAO.sessionThread.set(null);
     }
 
-    public static void close() {
+    @SuppressWarnings("unchecked")
+	public static void close() {
         getSession().close();
         DAO.sessionThread.set(null);
     }

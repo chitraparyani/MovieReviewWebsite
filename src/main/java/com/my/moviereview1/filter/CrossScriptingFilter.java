@@ -16,7 +16,8 @@ import org.apache.log4j.Logger;
 public class CrossScriptingFilter implements Filter {
 	
 	private static Logger logger = Logger.getLogger(CrossScriptingFilter.class);
-    private FilterConfig filterConfig;
+    @SuppressWarnings("unused")
+	private FilterConfig filterConfig;
     
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {

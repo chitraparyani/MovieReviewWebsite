@@ -21,6 +21,7 @@ public class PdfView extends AbstractPdfView {
 	protected void buildPdfDocument(Map<String, Object> model, Document pdfdoc, PdfWriter writer,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
+		@SuppressWarnings("unchecked")
 		List<User> list = (List<User>) model.get("list");
 		
 		for(User user : list) {

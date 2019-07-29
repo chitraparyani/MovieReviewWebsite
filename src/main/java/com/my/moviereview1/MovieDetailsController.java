@@ -27,6 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.my.moviereview1.dao.UserDAO;
 import com.my.moviereview1.pojo.UserMovies;
 
+@SuppressWarnings("unused")
 @Controller
 public class MovieDetailsController {
 

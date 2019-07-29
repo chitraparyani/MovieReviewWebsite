@@ -91,6 +91,7 @@ public class UserDAO extends DAO{
 		}
 	
 	//Retrive MovieID
+	@SuppressWarnings("rawtypes")
 	public boolean retrieveMovieId(String username, String movie) {
 		
 		Query query = getSession().createQuery("from UserMovies where username = :username and movieid = :movie");
@@ -107,6 +108,7 @@ public class UserDAO extends DAO{
 		
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public List retrieveMovieUser(String username) {		
 		Query query = getSession().createQuery("from UserMovies where username = :username");
 		query.setParameter("username", username);		
@@ -117,6 +119,7 @@ public class UserDAO extends DAO{
 	
 	
 	//List of Users
+	@SuppressWarnings("rawtypes")
 	public List retrieveUser() {		
 		Query query = getSession().createQuery("from User");			
 		List list = query.list();
@@ -125,6 +128,7 @@ public class UserDAO extends DAO{
 	}
 	
 	//Admin
+	@SuppressWarnings("unchecked")
 	public ArrayList<User> displayUser(String username) throws UserException {		
 		
 		String name = "admin";
@@ -224,6 +228,7 @@ public class UserDAO extends DAO{
 			query.setParameter("password", password);
 			query.setParameter("username", username);
 			
+			@SuppressWarnings("unused")
 			int x = query.executeUpdate();
 			commit();
 		}catch(HibernateException e) {

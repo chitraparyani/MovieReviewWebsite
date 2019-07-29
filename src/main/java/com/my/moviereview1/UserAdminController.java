@@ -22,6 +22,7 @@ import com.my.moviereview1.pojo.User;
 import com.my.moviereview1.report.ExcelView;
 import com.my.moviereview1.report.PdfView;
 
+@SuppressWarnings("unused")
 @Controller
 public class UserAdminController {
 	
@@ -55,6 +56,7 @@ public class UserAdminController {
 		
 		ModelAndView mv = null;	
 		String name = request.getParameter("action");
+		@SuppressWarnings("unchecked")
 		ArrayList<User> list = (ArrayList<User>) userDao.retrieveUser();
 		if(name.equals("Excel")) {												
 			mv = new ModelAndView(new ExcelView(), "list", list);	
