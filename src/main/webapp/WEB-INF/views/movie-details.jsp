@@ -42,8 +42,6 @@ ${movie.get("tagline")}
 <h3 class = "overviewstyle">
 ${movie.get("overview")}
 </h3>
-<br/>
-<br/>
 </div>
 <div class = "releasestyle">
 Release Date
