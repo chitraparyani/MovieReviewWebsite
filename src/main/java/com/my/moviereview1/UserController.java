@@ -167,18 +167,15 @@ public class UserController {
 
 		if (result.hasErrors()) {
 			return "error";
-		}
-		
-			
-			@SuppressWarnings("unchecked")
-			ArrayList<User> userlist= (ArrayList<User>) userDao.retrieveUser();
-			String usernam= user.getUsername();
-			for(User u: userlist) {
-				if(usernam.equals(u.getUsername())) {					
-					request.getSession().setAttribute("errorMessage", "User Name already exist!! Please try again with your existing id");
-					return "error";
-				}
+		}		
+		ArrayList<User> userlist= (ArrayList<User>) userDao.retrieveUser();
+		String usernam= user.getUsername();
+		for(User u: userlist) {
+			if(usernam.equals(u.getUsername())) {					
+				request.getSession().setAttribute("errorMessage", "User Name already exist!! Please try again with your existing id");
+				return "error";
 			}
+		}
 			
 			if((user.getUsername().length()) < 8 || (user.getUsername().length() > 30) || 
 					(user.getPassword().length()) <8 || (user.getPassword().length()) > 30) {
