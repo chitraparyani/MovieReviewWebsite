@@ -10,13 +10,13 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 
 public class CrossScriptingFilter implements Filter {
 	
-	private static Logger logger = Logger.getLogger(CrossScriptingFilter.class);
-    @SuppressWarnings("unused")
+	//private static Logger logger = Logger.getLogger(CrossScriptingFilter.class);
+    
 	private FilterConfig filterConfig;
     
 	@Override
@@ -29,9 +29,9 @@ public class CrossScriptingFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		// TODO Auto-generated method stub
-		logger.info("Inlter CrossScriptingFilter  ...............");
+	//	logger.info("Inlter CrossScriptingFilter  ...............");
         chain.doFilter(new RequestWrapper((HttpServletRequest) request), response);
-        logger.info("Outlter CrossScriptingFilter ...............");
+    //    logger.info("Outlter CrossScriptingFilter ...............");
 		
 	}
 

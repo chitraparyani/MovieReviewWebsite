@@ -91,7 +91,7 @@ public class UserDAO extends DAO{
 		}
 	
 	//Retrive MovieID
-	@SuppressWarnings("rawtypes")
+	
 	public boolean retrieveMovieId(String username, String movie) {
 		
 		Query query = getSession().createQuery("from UserMovies where username = :username and movieid = :movie");

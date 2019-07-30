@@ -16,8 +16,8 @@ import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,11 +27,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.my.moviereview1.dao.UserDAO;
 import com.my.moviereview1.pojo.UserMovies;
 
-@SuppressWarnings("unused")
+
 @Controller
 public class MovieDetailsController {
 
-	private static final Logger logger = LoggerFactory.getLogger(MovieDetailsController.class);
+	//private static final Logger logger = LoggerFactory.getLogger(MovieDetailsController.class);
 	
 	@RequestMapping(value = "/movie", method = RequestMethod.GET)
 	public ModelAndView displayDetails(HttpServletRequest request, HttpServletResponse response, UserDAO userDao, ModelMap model) throws IOException {

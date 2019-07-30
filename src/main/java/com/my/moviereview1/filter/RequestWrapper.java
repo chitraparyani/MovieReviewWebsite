@@ -4,13 +4,13 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 
 
 
 public class RequestWrapper  extends HttpServletRequestWrapper {
 	
-	private static Logger logger = Logger.getLogger(RequestWrapper.class);
+	//private static Logger logger = Logger.getLogger(RequestWrapper.class);
 	static String allowedChars = "+-0123456789#*";
 	public RequestWrapper(ServletRequest servletRequest) {
 		super((HttpServletRequest)servletRequest);
@@ -20,7 +20,7 @@ public class RequestWrapper  extends HttpServletRequestWrapper {
 	
 	
 	public String[] getParameterValues(String parameter) {
-		logger.info("InarameterValues .. parameter .......");
+	//	logger.info("InarameterValues .. parameter .......");
 		String[] values = super.getParameterValues(parameter);
 		if (values == null) {
 			return null;
@@ -35,27 +35,27 @@ public class RequestWrapper  extends HttpServletRequestWrapper {
 
 	
 	public String getParameter(String parameter) {
-		logger.info("Inarameter .. parameter .......");
+	//	logger.info("Inarameter .. parameter .......");
 		String value = super.getParameter(parameter);
 		if (value == null) {
 			return null;
 		}
-		logger.info("Inarameter RequestWrapper ........ value .......");
+	//	logger.info("Inarameter RequestWrapper ........ value .......");
 		return cleanXSS(value);
 	}
 
 	public String getHeader(String name) {
-		logger.info("Ineader .. parameter .......");
+	//	logger.info("Ineader .. parameter .......");
 		String value = super.getHeader(name);
 		if (value == null)
 			return null;
-		logger.info("Ineader RequestWrapper ........... value ....");
+	//	logger.info("Ineader RequestWrapper ........... value ....");
 		return cleanXSS(value);
 	}
 
 	private String cleanXSS(String value) {
 		// You'll need to remove the spaces from the html entities below
-		logger.info("InnXSS RequestWrapper ..............." + value);
+	//	logger.info("InnXSS RequestWrapper ..............." + value);
 		value = value.replaceAll("<", " ").replaceAll(">", " ");
 		value = value.replaceAll("=", " ");
 		value = value.replaceAll("/", " ");
@@ -70,7 +70,7 @@ public class RequestWrapper  extends HttpServletRequestWrapper {
 		value = value.replaceAll("(?i)<.*?\\s+on.*?>.*?</.*?>", "");
 		value = value.replaceAll("<script>", "");
 		value = value.replaceAll("</script>", "");
-		logger.info("OutnXSS RequestWrapper ........ value ......." + value);
+	//	logger.info("OutnXSS RequestWrapper ........ value ......." + value);
 		return value;
 	}
 	

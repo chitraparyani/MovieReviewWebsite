@@ -14,7 +14,7 @@ import org.hibernate.cfg.Configuration;
 
 public class DAO {
 	
-private static final Logger log = Logger.getAnonymousLogger();
+//private static final Logger log = Logger.getAnonymousLogger();
     
 	@SuppressWarnings("rawtypes")
 	private static final ThreadLocal sessionThread = new ThreadLocal();
@@ -49,12 +49,12 @@ private static final Logger log = Logger.getAnonymousLogger();
         try {
             getSession().getTransaction().rollback();
         } catch (HibernateException e) {
-            log.log(Level.WARNING, "Cannot rollback", e);
+          //  log.log(Level.WARNING, "Cannot rollback", e);
         }
         try {
             getSession().close();
         } catch (HibernateException e) {
-            log.log(Level.WARNING, "Cannot close", e);
+          //  log.log(Level.WARNING, "Cannot close", e);
         }
         DAO.sessionThread.set(null);
     }

@@ -28,7 +28,7 @@ import com.my.moviereview1.pojo.User;
 import com.my.moviereview1.pojo.UserMovies;
 import com.my.moviereview1.validator.UserValidator;
 
-@SuppressWarnings("unused")
+
 @Controller
 public class UserController {
 
